@@ -1,9 +1,11 @@
-console.log("Lets start to type");
+import chalk from "chalk";
+import fs from "fs";
 
-const paragrafo = "Texto retornado por uma funcao";
-
-function texto(string) {
-  return string;
+function getElement(pathDoc) {
+  const encoding = "utf-8";
+  fs.readFile(pathDoc, encoding, (_, data) => {
+    console.log(chalk.green(data));
+  });
 }
 
-console.log(texto(paragrafo));
+getElement("./arquivos/texto1.md");
